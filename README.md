@@ -11,4 +11,4 @@ Tidak diperbolehkan:
 - Mengklaim code ini sebagai hasil karya sendiri
 
 Untuk permintaan lisensi komersial atau kolaborasi, silakan hubungi:
-📧 email: [deniwenda895@gmail.com]
+📧 email: [dheniwhenda@gmail.com]
