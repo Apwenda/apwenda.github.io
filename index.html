@@ -282,6 +282,7 @@
       background-color: #071224;
     }
     .section-bg-alt { background-color: #0b1a30; }
+    
   </style>
 </head>
 
@@ -441,7 +442,7 @@
             <!-- Badge -->
             <div class="absolute -bottom-3 -right-3 glass-card rounded-2xl px-4 py-2 flex items-center gap-2 shadow-xl dark-card">
               <i class="fa-solid fa-code text-brand-400"></i>
-              <span class="text-xs font-bold dark:text-white text-slate-800">Web Developer</span>
+<span id="typing-text" class="text-xs font-bold dark:text-white text-slate-800"></span>
             </div>
           </div>
         </div>
@@ -999,6 +1000,43 @@
       }
     });
   </script>
+  <script>
+const texts = ["Web Developer", "Web Designer"];
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+const typingElement = document.getElementById("typing-text");
+
+function typeEffect() {
+    const currentText = texts[textIndex];
+    const textLength = currentText.length;
+
+    if (isDeleting) {
+        charIndex--;
+    } else {
+        charIndex++;
+    }
+
+    // 👉 ambil dari kanan ke kiri
+    typingElement.textContent = currentText.substring(textLength - charIndex);
+
+    let speed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === textLength) {
+        speed = 1500;
+        isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        textIndex = (textIndex + 1) % texts.length;
+        speed = 500;
+    }
+
+    setTimeout(typeEffect, speed);
+}
+
+typeEffect();
+</script>
 
 </body>
 </html>
